@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS time_logs (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  project_id INT  NOT NULL REFERENCES projects(id),
+  work_date DATE NOT NULL,
+  hours NUMERIC(4,2) NOT NULL CHECK (hours >= 0.25 AND hours <= 8)
+);
+
+CREATE TABLE collected_logs (
+  id SERIAL PRIMARY KEY,
+  payload JSONB NOT NULL,
+  collected_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
