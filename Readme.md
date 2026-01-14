@@ -17,19 +17,6 @@ A simple time-logging system built with PostgreSQL and two microservices communi
 
 ---
 
-## Project Structure
-
-timelog/
-├─ database/
-│ ├─ schema.sql
-│ └─ init_database.sql
-├─ services/
-│ ├─ collector-service/
-│ └─ storage-service/
-├─ docker-compose.yml
-└─ README.md
-
-
 ## How to Run
 
 ### 1. Start PostgreSQL
