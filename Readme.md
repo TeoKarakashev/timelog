@@ -38,14 +38,15 @@ docker exec -it timelog-postgres psql -h localhost -U postgres timelog
 CALL init_database();
 
 4. Start services
+
 Storage service 
 
 cd services/storage-service
 npm install
 npm run build
 npm start
-Collector service:
 
+Collector service:
 
 cd services/collector-service
 npm install
